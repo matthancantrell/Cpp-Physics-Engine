@@ -2,4 +2,5 @@
 
 void Body::Step(float dt)
 {
+	position += velocity * dt;
 }
