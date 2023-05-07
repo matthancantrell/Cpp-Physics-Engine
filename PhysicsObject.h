@@ -1,6 +1,7 @@
 #pragma once
 #include "Body.h"
 #include "Shape.h"
+#include "Graphics.h"
 
 class PhysicsObject
 {
@@ -10,7 +11,7 @@ public:
 	~PhysicsObject();
 
 	void Step(float dt);
-	void Draw(class Graphics* m_graphics);
+	void Draw(Graphics* m_graphics);
 
 
 	Body* GetBody() { return m_body; }

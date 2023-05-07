@@ -26,7 +26,7 @@ void World::Step(float dt)
 void World::Draw(Graphics* m_graphics)
 {
 	// Call Draw() on all objects
-
+	 
 	for (auto i : m_objects)
 	{
 		i->Draw(m_graphics);

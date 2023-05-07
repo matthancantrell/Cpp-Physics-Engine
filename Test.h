@@ -2,6 +2,7 @@
 #include "Graphics.h"
 #include "Input.h"
 #include "Time.h"
+#include "World.h"
 #include "Random.h"
 
 class Test
@@ -21,7 +22,8 @@ protected:
 protected:
 	bool m_quit{ false };
 
-	class Graphics* m_graphics{ nullptr };
-	class Input* m_input{ nullptr };
-	class Time* m_time{ nullptr };
+	Graphics* m_graphics{ nullptr };
+	Input* m_input{ nullptr };
+	Time* m_time{ nullptr };
+	World* m_world{ nullptr };
 };

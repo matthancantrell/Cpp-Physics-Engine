@@ -2,11 +2,13 @@
 
 int main(int argc, char* argv[])
 {
-    Test* test = new Test();
-    test->Initialize();
+    //Test* test = new Test();
+    ParticleTest* Ptest = new ParticleTest();
+    Ptest->Initialize();
+    //test->Initialize();
 
-    while (!test->IsQuit()) { test->Run(); }
-    delete test;
+    while (!Ptest->IsQuit()) { Ptest->Run(); }
+    delete Ptest;
 
     return 0;
 }

@@ -41,30 +41,30 @@ void Input::Update()
 
 bool Input::GetKey(uint8_t key)
 {
-	return false;
+	return m_keyboardState[key];
 }
 
 bool Input::GetKeyDown(uint8_t key)
 {
-	return false;
+	return m_keyboardState[key] && !m_prevKeyboard[key];
 }
 
 bool Input::GetKeyUp(uint8_t key)
 {
-	return false;
+	return !m_keyboardState[key] && m_prevKeyboard[key];
 }
 
 bool Input::GetMouseButton(uint8_t button)
 {
-	return false;
+	return m_mouseButton[button];
 }
 
 bool Input::GetMouseButtonDown(uint8_t button)
 {
-	return false;
+	return m_mouseButton[button] && !m_prevMouseButton[button];
 }
 
 bool Input::GetMouseButtonUp(uint8_t button)
 {
-	return false;
+	return !m_mouseButton[button] && m_prevMouseButton[button];
 }

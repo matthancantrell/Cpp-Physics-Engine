@@ -1,5 +1,6 @@
 #include "Graphics.h"
 #include "include/SDL.h"
+#include "Primitives.h"
 #include <cmath>
 #include "Random.h"
 
@@ -89,61 +90,14 @@ void Graphics::DrawLine(const glm::ivec2& start, const glm::ivec2& end, const gl
 	SDL_RenderDrawLine(m_renderer, start.x, start.y, end.x, end.y);
 }
 
-
-
 void Graphics::DrawCircle(const glm::ivec2& point, int radius, const glm::vec4& color)
 {
-	//set color
-	SetColor(color);
-
-
-
-	//outline radius
-	int x = 0, y = radius;
-	int d = 3 - 2 * radius;
-
-
-
-	//scanline the
-	while (x <= y) {
-		SDL_RenderDrawPoint(m_renderer, point.x + x, point.y + y);
-		SDL_RenderDrawPoint(m_renderer, point.x + y, point.y + x);
-		SDL_RenderDrawPoint(m_renderer, point.x + y, point.y - x);
-		SDL_RenderDrawPoint(m_renderer, point.x + x, point.y - y);
-		SDL_RenderDrawPoint(m_renderer, point.x - x, point.y - y);
-		SDL_RenderDrawPoint(m_renderer, point.x - y, point.y - x);
-		SDL_RenderDrawPoint(m_renderer, point.x - y, point.y + x);
-		SDL_RenderDrawPoint(m_renderer, point.x - x, point.y + y);
-
-
-
-		if (d < 0) {
-			d += 4 * x + 6;
-		}
-		else {
-			d += 4 * (x - y) + 10;
-			y--;
-		}
-		x++;
-	}
+	glm::ivec4 icolor = ConvertColor(color);
+	circleRGBA(m_renderer, point.x, point.y, radius, icolor.r, icolor.g, icolor.b, icolor.a);
 }
+
 void Graphics::DrawFilledCircle(const glm::ivec2& point, int radius, const glm::vec4& color)
 {
-	// Set the color
-	SetColor(color);
-
-	// Compute the center and the squared radius
-	int x0 = point.x;
-	int y0 = point.y;
-	int r2 = radius * radius;
-
-	// Scanline fill the circle
-	for (int y = -radius; y <= radius; y++) {
-		for (int x = -radius; x <= radius; x++) {
-			if (x * x + y * y <= r2) {
-				SDL_RenderDrawPoint(m_renderer, x0 + x, y0 + y);
-			}
-
-		}
-	}
+	glm::ivec4 icolor = ConvertColor(color);
+	filledCircleRGBA(m_renderer, point.x, point.y, radius, icolor.r, icolor.g, icolor.b, icolor.a);
 }
