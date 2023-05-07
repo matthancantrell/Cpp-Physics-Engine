@@ -161,6 +161,7 @@
     <ClCompile Include="Primitives.cpp" />
     <ClCompile Include="Test.cpp" />
     <ClCompile Include="Time.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Body.h" />
@@ -174,6 +175,7 @@
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="Time.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
