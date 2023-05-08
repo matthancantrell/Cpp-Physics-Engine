@@ -25,16 +25,34 @@ void Test::Initialize()
 
 void Test::Run()
 {
+	Update(); // Update Events, Time, And Input
+	m_fixedTime += m_time->TimeDelta();
+	FixedUpdate();
+
+	// Render
+	PreRender();
+	Render();
+	PostRender();
+
+	//m_graphics->DrawCircle(m_input->GetMousePosition(), 30, {randomf(), randomf(), randomf(), 1});
+}
+
+void Test::Update()
+{
 	UpdateEvents();
 
 	m_input->Update();
 	m_time->Update();
+}
 
+void Test::PreRender()
+{
 	m_graphics->SetColor({ 0, 0, 0, 0 });
 	m_graphics->Clear();
-	
-	m_graphics->DrawCircle(m_input->GetMousePosition(), 30, {randomf(), randomf(), randomf(), 1});
-	
+}
+
+void Test::PostRender()
+{
 	m_graphics->Present();
 }
 

@@ -6,8 +6,9 @@ class ParticleTest : public Test
 public:
 
 	void Initialize() override;
-	void Run() override;
 
-protected:
+	void Update() override;
+	virtual void FixedUpdate() override;
+	virtual void Render() override;
 
 };
