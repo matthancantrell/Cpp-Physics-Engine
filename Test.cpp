@@ -20,7 +20,7 @@ void Test::Initialize()
 	m_graphics->CreateWindow("Physics", 800, 600);
 	m_input = new Input();
 	m_time = new Time();
-	m_time->SetFixedDeltaTime(0.016);
+	m_time->SetFixedDeltaTime(0.016f);
 	m_world = new World();
 }
 

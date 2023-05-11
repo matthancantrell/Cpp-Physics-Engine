@@ -1,9 +1,10 @@
 #include "ParticleTest.h"
+#include "ForceTest.h"
 
 int main(int argc, char* argv[])
 {
     //Test* test = new Test();
-    ParticleTest* Ptest = new ParticleTest();
+    Test* Ptest = new ForceTest();
     Ptest->Initialize();
     //test->Initialize();
 

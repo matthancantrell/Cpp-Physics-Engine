@@ -1,6 +1,7 @@
 #include "Body.h"
 #include "World.h"
-#include "Integrator.h";
+#include "Shape.h"
+#include "Integrator.h"
 
 void Body::ApplyForce(const glm::vec2& force)
 {
