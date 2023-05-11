@@ -1,48 +1,47 @@
 #include "World.h"
+#include "Body.h"
+#include "ForceGenerator.h"
 
 World::~World()
 {
 	// Delete All Objects
 	// Clear Objects From List
 
-	for (auto i : m_objects)
-	{
-		delete i;
-	}
+	for (auto i : m_bodies) { delete i; }
 
-	m_objects.clear();
+	m_bodies.clear();
 }
 
 void World::Step(float dt)
 {
 	// Call Step on ALL objects
+	for (auto i : m_ForceGenerators) i->Apply(m_bodies);
 
-	for (auto i : m_objects)
-	{
-		i->Step(dt);
-	}
+	for (auto i : m_bodies) i->Step(dt);
 }
 
 void World::Draw(Graphics* m_graphics)
 {
 	// Call Draw() on all objects
 	 
-	for (auto i : m_objects)
-	{
-		i->Draw(m_graphics);
-	}
+	for (auto i : m_bodies) { i->Draw(m_graphics); }
 }
 
-void World::AddPhysicsObject(PhysicsObject* po)
+void World::AddBody(Body* po)
 {
 	// Push Back On The po onto objects list
 
-	m_objects.push_back(po);
+	m_bodies.push_back(po);
 }
 
-void World::RemovePhysicsObject(PhysicsObject* po)
+void World::RemoveBody(Body* po)
 {
 	// remove po from objects list
 
-	m_objects.remove(po);
+	m_bodies.remove(po);
+}
+
+void World::AddForceGenerator(ForceGenerator* forceGenerator)
+{
+	m_ForceGenerators.push_back(forceGenerator);
 }

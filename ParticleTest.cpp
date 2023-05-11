@@ -1,4 +1,5 @@
 #include "ParticleTest.h"
+#include"Body.h"
 #include "Circle_Shape.h"
 #include <iostream>
 
@@ -14,8 +15,9 @@ void ParticleTest::Update()
 	if (m_input->GetMouseButton(0))
 	{
 		glm::vec2 velocity = randomUnitCircle() * randomf(100, 200);
-		auto po = new PhysicsObject(new Body(m_input->GetMousePosition(), velocity), new Circle_Shape(randomf(1, 20), glm::vec4{ randomf(1), randomf(1) , randomf(1) , randomf(1) }));
-		m_world->AddPhysicsObject(po);
+		auto body = new Body(new Circle_Shape(randomf(1, 20), glm::vec4{ randomf(), randomf() , randomf() , randomf() }), m_input->GetMousePosition(), velocity);
+		//body->damping = 1;
+		m_world->AddBody(body);
 	}
 }
 

@@ -1,6 +1,7 @@
 #pragma once
-#include "PhysicsObject.h"
 #include <list>
+#include <vector>
+#include <glm/glm.hpp>
 
 class World
 {
@@ -11,10 +12,14 @@ public:
 	void Step(float dt);
 	void Draw(class Graphics* m_graphics);
 
-	void AddPhysicsObject(PhysicsObject* po);
-	void RemovePhysicsObject(PhysicsObject* po);
+	void AddBody(class Body* po);
+	void RemoveBody(class Body* po);
+
+	void AddForceGenerator(class ForceGenerator* forceGenerator);
+
+	static glm::vec2 gravity;
 
 	private:
-
-		std::list<PhysicsObject*> m_objects;
+		std::list<class Body*> m_bodies;
+		std::vector<class ForceGenerator*> m_ForceGenerators;
 };

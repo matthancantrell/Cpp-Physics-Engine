@@ -5,10 +5,21 @@ class Body
 {
 public:
 
-	Body(const glm::vec2& position, const glm::vec2& velocity) :
+	enum Type
+	{
+		STATIC,
+		KINEMATIC,
+		DYNAMIC
+	};
+
+	Body(class Shape* shape, const glm::vec2& position, const glm::vec2& velocity, float mass, Type type) :
 		position { position },
-		velocity { velocity }
-	{};
+		velocity { velocity },
+		mass{mass},
+		type{type}
+	{
+		if (type == STATIC) mass = 0;
+	};
 
 	Body(const glm::vec2& position, const glm::vec2& velocity, float mass) :
 		position { position },
@@ -20,11 +31,15 @@ public:
 
 	void ApplyForce(const glm::vec2& force);
 	void Step(float dt);
+	void Draw(class Graphics* graphics);
 
 	void ClearForce() { force = glm::vec2{ 0, 0 }; }
 
 
 public:
+	class Shape* shape { nullptr };
+
+	Type type{ Type::DYNAMIC };
 
 	glm::vec2 position { 0,0 };
 	glm::vec2 velocity { 0,0 };
