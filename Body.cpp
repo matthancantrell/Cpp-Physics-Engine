@@ -13,7 +13,7 @@ void Body::Step(float dt)
 	Integrator::ExplicitEuler(*this, dt);
 	ClearForce();
 	
-	velocity *= 1.0f / (1.0f + (3.0f * dt));
+	velocity *= 1.0f / (1.0f + (damping * dt));
 }
 
 void Body::Draw(Graphics* graphics)

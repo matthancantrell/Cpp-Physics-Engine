@@ -15,8 +15,13 @@ World::~World()
 void World::Step(float dt)
 {
 	// Call Step on ALL objects
-	for (auto i : m_ForceGenerators) i->Apply(m_bodies);
+	if (m_bodies.size() > 0 && m_ForceGenerators.size() > 0)
+	{
+		std::vector<Body*> bodies(m_bodies.begin(), m_bodies.end());
 
+		for (auto i : m_ForceGenerators) i->Apply(bodies);
+	}
+	
 	for (auto i : m_bodies) i->Step(dt);
 }
 
