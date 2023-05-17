@@ -11,6 +11,9 @@ void Body::ApplyForce(const glm::vec2& force)
 
 void Body::Step(float dt)
 {
+	ApplyForce(-World::gravity * gravityScale * mass);
+
+
 	Integrator::ExplicitEuler(*this, dt);
 	ClearForce();
 	

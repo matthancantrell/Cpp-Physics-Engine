@@ -8,6 +8,6 @@ void PointForce::Apply(std::vector<class Body*> bodies)
 		if (!m_body->Intersects(body)) continue;
 		glm::vec2 direction = m_body->position - body->position;
 		glm::vec2 force = glm::normalize(direction);
-		body->ApplyForce(force * m_forceMagnitude);
+		body->ApplyForce(force * -m_forceMagnitude);
 	}
 }

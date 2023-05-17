@@ -1,5 +1,6 @@
 #pragma once
 #include "ForceGenerator.h"
+#include <vector>
 
 class DragForce : public ForceGenerator
 {

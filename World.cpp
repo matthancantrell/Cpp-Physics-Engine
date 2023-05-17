@@ -2,6 +2,8 @@
 #include "Body.h"
 #include "ForceGenerator.h"
 
+glm::vec2 World::gravity = { 0, -9.8 };
+
 World::~World()
 {
 	// Delete All Objects
@@ -29,6 +31,7 @@ void World::Draw(Graphics* m_graphics)
 {
 	// Call Draw() on all objects
 	 
+	for (auto i : m_ForceGenerators) { i->Draw(m_graphics); }
 	for (auto i : m_bodies) { i->Draw(m_graphics); }
 }
 
