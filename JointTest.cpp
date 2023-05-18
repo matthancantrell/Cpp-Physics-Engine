@@ -6,7 +6,7 @@
 
 #define SPRING_STIFFNESS 200
 #define SPRING_LENGTH	 50
-#define BODY_DAMPING	 10
+#define BODY_DAMPING	 14
 #define CHAIN_SIZE		 6
 
 void JointTest::Initialize()
@@ -18,7 +18,6 @@ void JointTest::Initialize()
 
 	auto prevBody = m_anchor;
 
-	//
 	auto body = new Body(new Circle_Shape(20, { 1, 1, 1, 1 }), { 400, 200 }, { 0, 0 }, 1, Body::DYNAMIC);
 	body->gravityScale = 250;
 	body->damping = BODY_DAMPING;
@@ -27,16 +26,19 @@ void JointTest::Initialize()
 	auto joint = new Joint(m_anchor, body, SPRING_STIFFNESS, SPRING_LENGTH);
 	m_world->AddJoint(joint);
 
-	prevBody = body;
-	//
+	for (int i = 0; i < CHAIN_SIZE; i++)
+	{
+		prevBody = body;
 
-	body = new Body(new Circle_Shape(20, { 1, 1, 1, 1 }), { 400, 200 }, { 0, 0 }, 1, Body::DYNAMIC);
-	body->gravityScale = 250;
-	body->damping = BODY_DAMPING;
-	m_world->AddBody(body);
+		body = new Body(new Circle_Shape(20, { 1, 1, 1, 1 }), { 400, 200 }, { 0, 0 }, 1, Body::DYNAMIC);
+		body->gravityScale = 250;
+		body->damping = BODY_DAMPING;
+		m_world->AddBody(body);
 
-	joint = new Joint(body, prevBody, SPRING_STIFFNESS, SPRING_LENGTH);
-	m_world->AddJoint(joint);
+		joint = new Joint(body, prevBody, SPRING_STIFFNESS, SPRING_LENGTH);
+		m_world->AddJoint(joint);
+	}
+
 }
 
 void JointTest::Update()
