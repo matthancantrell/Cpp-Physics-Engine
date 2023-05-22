@@ -1,6 +1,6 @@
 #include "ParticleTest.h"
-#include "Body.h"
-#include "Circle_Shape.h"
+#include "../Engine/Body.h"
+#include "../Engine/Circle_Shape.h"
 #include <iostream>
 
 void ParticleTest::Initialize()

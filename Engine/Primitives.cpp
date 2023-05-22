@@ -43,7 +43,7 @@ Andreas Schiffler -- aschiffler at ferzkopp dot net
 #include <math.h>
 #include <string.h>
 
-#include "Externals/SDL2/include/SDL.h"
+#include "../Externals/SDL2/include/SDL.h"
 #include "Primitives.h"
 
 /* ---- Structures */

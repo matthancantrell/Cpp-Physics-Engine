@@ -1,10 +1,10 @@
 #include "ForceTest.h"
-#include "GravGenerator.h"
-#include "Body.h"
-#include "Circle_Shape.h"
-#include "AreaForce.h"
-#include "PointForce.h"
-#include "DragForce.h"
+#include "../Physics/GravGenerator.h"
+#include "../Engine/Body.h"
+#include "../Engine/Circle_Shape.h"
+#include "../Physics/AreaForce.h"
+#include "../Physics/PointForce.h"
+#include "../Physics/DragForce.h"
 
 void ForceTest::Initialize()
 {

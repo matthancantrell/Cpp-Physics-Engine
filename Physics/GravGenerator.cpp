@@ -1,5 +1,5 @@
 #include "GravGenerator.h"
-#include "Body.h"
+#include "../Engine/Body.h"
 
 void GravGenerator::Apply(std::vector<class Body*> bodies)
 {

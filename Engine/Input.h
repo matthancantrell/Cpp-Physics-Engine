@@ -1,5 +1,5 @@
 #pragma once
-#include "Externals/SDL2/include/SDL.h"
+#include "../Externals/SDL2/include/SDL.h"
 #include <glm/glm.hpp>
 #include <vector>
 #include <array>

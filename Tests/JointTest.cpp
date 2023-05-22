@@ -1,21 +1,21 @@
 #include "JointTest.h"
-#include "Circle_Shape.h"
-#include "World.h"
-#include "Body.h"
-#include "Joint.h"
+#include "../Engine/Circle_Shape.h"
+#include "../Engine/World.h"
+#include "../Engine/Body.h"
+#include "../Physics/Joint.h"
 
-//#define CHAIN // Will Be Used To Turn Chain On/Off To Make Chain Or Grid
+#define CHAIN // Will Be Used To Turn Chain On/Off To Make Chain Or Grid
 
-#define SPRING_STIFFNESS 200
-#define SPRING_LENGTH	 100
-#define BODY_DAMPING	 20
+#define SPRING_STIFFNESS 100
+#define SPRING_LENGTH	 1
+#define BODY_DAMPING	 5
 #define CHAIN_SIZE		 3
 
 void JointTest::Initialize()
 {
 	Test::Initialize();
 
-	m_anchor = new Body(new Circle_Shape(20, { 1, 1, 1, 1 }), { 400, 100 }, { 0, 0 }, 0, Body::KINEMATIC);
+	m_anchor = new Body(new Circle_Shape(1, { 1, 1, 1, 1 }), { 0, 0 }, { 0, 0 }, 0, Body::KINEMATIC);
 	m_world->AddBody(m_anchor);
 
 
@@ -25,8 +25,7 @@ void JointTest::Initialize()
 	// chain
 	for (int i = 0; i < CHAIN_SIZE; i++) // Make To Desired Size
 	{
-		auto body = new Body(new Circle_Shape(20, { 1, 1, 1, 1 }), { 400, 200 }, { 0, 0 }, 1, Body::DYNAMIC); // New Body
-		body->gravityScale = 150; // Set Gravity
+		auto body = new Body(new Circle_Shape(0.5f, { 1, 1, 1, 1 }), { 0, 0 }, { 0, 0 }, 1, Body::DYNAMIC); // New Body
 		body->damping = BODY_DAMPING; // Set Damping
 		m_world->AddBody(body); // Put In World
 
@@ -95,7 +94,7 @@ void JointTest::Initialize()
 void JointTest::Update()
 {
 	Test::Update();
-	m_anchor->position = m_input->GetMousePosition();
+	m_anchor->position = m_graphics->ScreenToWorld(m_input->GetMousePosition());
 }
 
 void JointTest::FixedUpdate()
