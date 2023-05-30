@@ -5,10 +5,10 @@
 
 int main(int argc, char* argv[]) 
 {
-	Test* test = new CollisionTest();
-	test->Initialize();
-	while (!test->IsQuit()) { test->Run(); }
-	delete test;
+	Test* pTest = new CollisionTest();
+	pTest->Initialize();
+	while (!pTest->IsQuit()) { pTest->Run(); }
+	delete pTest;
 
 	return 0;
 }
