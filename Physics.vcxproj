@@ -18,6 +18,53 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Engine\Graphics.cpp" />
+    <ClCompile Include="Source\Engine\Input.cpp" />
+    <ClCompile Include="Source\Engine\Primitives.cpp" />
+    <ClCompile Include="Source\Engine\Time.cpp" />
+    <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\Physics\Body.cpp" />
+    <ClCompile Include="Source\Physics\Collision\Collision.cpp" />
+    <ClCompile Include="Source\Physics\Constraints\Joint.cpp" />
+    <ClCompile Include="Source\Physics\Forces\AreaForce.cpp" />
+    <ClCompile Include="Source\Physics\Forces\DragForce.cpp" />
+    <ClCompile Include="Source\Physics\Forces\ForceGenerator.cpp" />
+    <ClCompile Include="Source\Physics\Forces\GravitationalForce.cpp" />
+    <ClCompile Include="Source\Physics\Forces\PointForce.cpp" />
+    <ClCompile Include="Source\Physics\Shapes\CircleShape.cpp" />
+    <ClCompile Include="Source\Physics\World.cpp" />
+    <ClCompile Include="Source\Tests\CollisionTest.cpp" />
+    <ClCompile Include="Source\Tests\ForceTest.cpp" />
+    <ClCompile Include="Source\Tests\JointTest.cpp" />
+    <ClCompile Include="Source\Tests\ParticleTest.cpp" />
+    <ClCompile Include="Source\Tests\Test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\Engine\Graphics.h" />
+    <ClInclude Include="Source\Engine\Input.h" />
+    <ClInclude Include="Source\Engine\Primitives.h" />
+    <ClInclude Include="Source\Engine\Random.h" />
+    <ClInclude Include="Source\Engine\Time.h" />
+    <ClInclude Include="Source\Physics\Body.h" />
+    <ClInclude Include="Source\Physics\Collision\Collision.h" />
+    <ClInclude Include="Source\Physics\Collision\Contact.h" />
+    <ClInclude Include="Source\Physics\Constraints\Joint.h" />
+    <ClInclude Include="Source\Physics\Forces\AreaForce.h" />
+    <ClInclude Include="Source\Physics\Forces\DragForce.h" />
+    <ClInclude Include="Source\Physics\Forces\ForceGenerator.h" />
+    <ClInclude Include="Source\Physics\Forces\GravitationalForce.h" />
+    <ClInclude Include="Source\Physics\Forces\PointForce.h" />
+    <ClInclude Include="Source\Physics\Integrator.h" />
+    <ClInclude Include="Source\Physics\Shapes\CircleShape.h" />
+    <ClInclude Include="Source\Physics\Shapes\Shape.h" />
+    <ClInclude Include="Source\Physics\World.h" />
+    <ClInclude Include="Source\Tests\CollisionTest.h" />
+    <ClInclude Include="Source\Tests\ForceTest.h" />
+    <ClInclude Include="Source\Tests\JointTest.h" />
+    <ClInclude Include="Source\Tests\ParticleTest.h" />
+    <ClInclude Include="Source\Tests\Test.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -76,7 +123,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Externals\glm;$(SolutionDir)\Externals\SDL2;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Externals\glm;$(SolutionDir)\Externals\SDL2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -96,7 +143,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Externals\glm;$(SolutionDir)\Externals\SDL2;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Externals\glm;$(SolutionDir)\Externals\SDL2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -116,7 +163,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Externals\glm;$(SolutionDir)\Externals\SDL2;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Externals\glm;$(SolutionDir)\Externals\SDL2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -136,7 +183,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\Externals\glm;$(SolutionDir)\Externals\SDL2;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Externals\glm;$(SolutionDir)\Externals\SDL2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -150,48 +197,6 @@
       <Command>xcopy "$(SolutionDir)Externals\SDL2\lib\$(PlatformTarget)\*.dll" "$(TargetDir)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Engine\Body.cpp" />
-    <ClCompile Include="Engine\Circle_Shape.cpp" />
-    <ClCompile Include="Engine\Graphics.cpp" />
-    <ClCompile Include="Engine\Input.cpp" />
-    <ClCompile Include="Engine\Primitives.cpp" />
-    <ClCompile Include="Engine\Time.cpp" />
-    <ClCompile Include="Engine\World.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Physics\AreaForce.cpp" />
-    <ClCompile Include="Physics\DragForce.cpp" />
-    <ClCompile Include="Physics\ForceGenerator.cpp" />
-    <ClCompile Include="Physics\GravGenerator.cpp" />
-    <ClCompile Include="Physics\Joint.cpp" />
-    <ClCompile Include="Physics\PointForce.cpp" />
-    <ClCompile Include="Tests\ForceTest.cpp" />
-    <ClCompile Include="Tests\JointTest.cpp" />
-    <ClCompile Include="Tests\ParticleTest.cpp" />
-    <ClCompile Include="Tests\Test.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Engine\Body.h" />
-    <ClInclude Include="Engine\Circle_Shape.h" />
-    <ClInclude Include="Engine\Graphics.h" />
-    <ClInclude Include="Engine\Input.h" />
-    <ClInclude Include="Engine\Integrator.h" />
-    <ClInclude Include="Engine\Primitives.h" />
-    <ClInclude Include="Engine\Random.h" />
-    <ClInclude Include="Engine\Shape.h" />
-    <ClInclude Include="Engine\Time.h" />
-    <ClInclude Include="Engine\World.h" />
-    <ClInclude Include="Physics\AreaForce.h" />
-    <ClInclude Include="Physics\DragForce.h" />
-    <ClInclude Include="Physics\ForceGenerator.h" />
-    <ClInclude Include="Physics\GravGenerator.h" />
-    <ClInclude Include="Physics\Joint.h" />
-    <ClInclude Include="Physics\PointForce.h" />
-    <ClInclude Include="Tests\ForceTest.h" />
-    <ClInclude Include="Tests\JointTest.h" />
-    <ClInclude Include="Tests\ParticleTest.h" />
-    <ClInclude Include="Tests\Test.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
